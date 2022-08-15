@@ -9,16 +9,16 @@ date_default_timezone_set('Asia/Jakarta');
 $dbhost = 'localhost';
 
 // Database Name
-$dbname = 'xicia_consultine';
+$dbname = 'u1584567_xicia_consultine';
 
 // Database Username
-$dbuser = 'root';
+$dbuser = 'u1584567_admin';
 
 // Database Password
-$dbpass = '';
+$dbpass = 'karangtaruna2022';
 
 // Defining base url
-define("BASE_URL", "http://localhost/cms/");
+define("BASE_URL", "http://karangtaruna.bengkaliskab.org");
 
 // Getting Admin url
 define("ADMIN_URL", BASE_URL . "admin" . "/");
