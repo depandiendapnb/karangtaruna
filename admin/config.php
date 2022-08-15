@@ -18,7 +18,7 @@ $dbuser = 'u1584567_admin';
 $dbpass = 'karangtaruna2022';
 
 // Defining base url
-define("BASE_URL", "http://karangtaruna.bengkaliskab.org");
+define("BASE_URL", "http://karangtaruna.bengkaliskab.org/");
 
 // Getting Admin url
 define("ADMIN_URL", BASE_URL . "admin" . "/");
