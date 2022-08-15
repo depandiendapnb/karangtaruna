@@ -8,14 +8,14 @@ include("admin/inc/language_data.php");
 require 'assets/mail/PHPMailer.php';
 require 'assets/mail/Exception.php';
 $mail = new PHPMailer\PHPMailer\PHPMailer();
-							
+
 $error_message = '';
 $success_message = '';
 $error_message1 = '';
 $success_message1 = '';
 $statement = $pdo->prepare("SELECT * FROM tbl_settings WHERE id=?");
 $statement->execute(array(1));
-$result = $statement->fetchAll(PDO::FETCH_ASSOC);							
+$result = $statement->fetchAll(PDO::FETCH_ASSOC);
 foreach ($result as $row) {
 	$mod_rewrite = $row['mod_rewrite'];
 	$color = $row['color'];
@@ -53,14 +53,14 @@ foreach ($result as $row)
 <html dir="ltr" lang="en">
 <head>
 
-	<!-- Meta Tags -->	
+	<!-- Meta Tags -->
 	<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
 
 
 	<!-- Showing the SEO related meta tags data -->
 	<?php
-	
+
 	// Getting the current page URL
 	$cur_page = substr($_SERVER["SCRIPT_NAME"],strrpos($_SERVER["SCRIPT_NAME"],"/")+1);
 
@@ -68,8 +68,8 @@ foreach ($result as $row)
 	{
 		$statement = $pdo->prepare("SELECT * FROM tbl_news WHERE news_slug=?");
 		$statement->execute(array($_REQUEST['slug']));
-		$result = $statement->fetchAll(PDO::FETCH_ASSOC);							
-		foreach ($result as $row) 
+		$result = $statement->fetchAll(PDO::FETCH_ASSOC);
+		foreach ($result as $row)
 		{
 		    $og_photo = $row['photo'];
 		    $og_title = $row['news_title'];
@@ -85,8 +85,8 @@ foreach ($result as $row)
 	{
 		$statement = $pdo->prepare("SELECT * FROM tbl_page WHERE page_slug=?");
 		$statement->execute(array($_REQUEST['slug']));
-		$result = $statement->fetchAll(PDO::FETCH_ASSOC);							
-		foreach ($result as $row) 
+		$result = $statement->fetchAll(PDO::FETCH_ASSOC);
+		foreach ($result as $row)
 		{
 			echo '<meta name="description" content="'.$row['meta_description'].'">';
 			echo '<meta name="keywords" content="'.$row['meta_keyword'].'">';
@@ -98,7 +98,7 @@ foreach ($result as $row)
 	{
 		$statement = $pdo->prepare("SELECT * FROM tbl_category WHERE category_slug=?");
 		$statement->execute(array($_REQUEST['slug']));
-		$result = $statement->fetchAll(PDO::FETCH_ASSOC);							
+		$result = $statement->fetchAll(PDO::FETCH_ASSOC);
 		foreach ($result as $row)
 		{
 			echo '<meta name="description" content="'.$row['meta_description'].'">';
@@ -111,34 +111,34 @@ foreach ($result as $row)
 	{
 		$statement = $pdo->prepare("SELECT * FROM tbl_settings WHERE id=1");
 		$statement->execute();
-		$result = $statement->fetchAll(PDO::FETCH_ASSOC);							
-		foreach ($result as $row) 
+		$result = $statement->fetchAll(PDO::FETCH_ASSOC);
+		foreach ($result as $row)
 		{
 			echo '<meta name="description" content="'.$row['meta_description_home'].'">';
 			echo '<meta name="keywords" content="'.$row['meta_keyword_home'].'">';
 			echo '<title>'.$row['meta_title_home'].'</title>';
 		}
 	}
-	
+
 	if($cur_page == 'team-member.php')
 	{
 		$statement = $pdo->prepare("SELECT * FROM tbl_team_member WHERE slug=?");
 		$statement->execute(array($_REQUEST['slug']));
-		$result = $statement->fetchAll(PDO::FETCH_ASSOC);							
-		foreach ($result as $row) 
+		$result = $statement->fetchAll(PDO::FETCH_ASSOC);
+		foreach ($result as $row)
 		{
 			echo '<meta name="description" content="'.$row['meta_description'].'">';
 			echo '<meta name="keywords" content="'.$row['meta_keyword'].'">';
 			echo '<title>'.$row['meta_title'].'</title>';
 		}
 	}
-	
+
 	if($cur_page == 'service.php')
 	{
 		$statement = $pdo->prepare("SELECT * FROM tbl_service WHERE slug=?");
 		$statement->execute(array($_REQUEST['slug']));
-		$result = $statement->fetchAll(PDO::FETCH_ASSOC);							
-		foreach ($result as $row) 
+		$result = $statement->fetchAll(PDO::FETCH_ASSOC);
+		foreach ($result as $row)
 		{
 			echo '<meta name="description" content="'.$row['meta_description'].'">';
 			echo '<meta name="keywords" content="'.$row['meta_keyword'].'">';
@@ -155,7 +155,7 @@ foreach ($result as $row)
 	<link rel="stylesheet" href="<?php echo BASE_URL; ?>assets/css/slicknav.css">
 	<link rel="stylesheet" href="<?php echo BASE_URL; ?>assets/css/superfish.css">
 	<link rel="stylesheet" href="<?php echo BASE_URL; ?>assets/css/animate.css">
-	
+
 	<link rel="stylesheet" href="<?php echo BASE_URL; ?>assets/css/jquery.bxslider.css">
 	<link rel="stylesheet" href="<?php echo BASE_URL; ?>assets/css/hover.css">
 	<link rel="stylesheet" href="<?php echo BASE_URL; ?>assets/css/magnific-popup.css">
@@ -176,17 +176,17 @@ foreach ($result as $row)
 
 	<link rel="stylesheet" href="<?php echo BASE_URL; ?>assets/css/cookieconsent.min.css">
 	<script src="<?php echo BASE_URL; ?>assets/js/cookieconsent.min.js"></script>
-	
-	
+
+
 	<style>
 		.top-bar,
 		.sf-menu li li:hover,
 		.slider p.button a,
 		.team-member-v1 .text,
 		.why-us .overlay,
-		.team-member-v1 .owl-controls .owl-prev:hover, 
+		.team-member-v1 .owl-controls .owl-prev:hover,
 		.team-member-v1 .owl-controls .owl-next:hover,
-		.news-v1 .owl-controls .owl-prev:hover, 
+		.news-v1 .owl-controls .owl-prev:hover,
 		.news-v1 .owl-controls .owl-next:hover,
 		.testimonial-v1 .overlay,
 		.newsletter-area .overlay,
@@ -212,7 +212,7 @@ foreach ($result as $row)
 		.team-member-v1 .heading h2,
 		.news-v1 .heading h2,
 		.news-v1 .text h3 a,
-		.testimonial-v1 .owl-controls .owl-prev, 
+		.testimonial-v1 .owl-controls .owl-prev,
 		.testimonial-v1 .owl-controls .owl-next,
 		.partner-v1 .heading h2,
 		.team-member-v3 .text h3 a,
@@ -224,7 +224,7 @@ foreach ($result as $row)
 		.blog .text ul.status li,
 		.blog h3 a:hover,
 		.heading-normal h2 {
-			color: #<?php echo $color; ?>!important;	
+			color: #<?php echo $color; ?>!important;
 		}
 
 		ul.gallery-menu li.filter.active,
@@ -233,11 +233,11 @@ foreach ($result as $row)
 		.widget-search button,
 		.form-control:focus,
 		.contact-v1 .cform-1 .btn-success {
-			border-color: #<?php echo $color; ?>!important;		
+			border-color: #<?php echo $color; ?>!important;
 		}
 
 		.heading-normal h2 {
-			border-bottom-color: #<?php echo $color; ?>!important;			
+			border-bottom-color: #<?php echo $color; ?>!important;
 		}
 
 		.slider p.button a:hover,
@@ -250,7 +250,7 @@ foreach ($result as $row)
 		}
 
 		.news-v1 .text h3 a:hover {
-			color: #333!important;	
+			color: #333!important;
 		}
 
 		.contact-v1 .cform-1 .btn-success:hover {
@@ -261,7 +261,7 @@ foreach ($result as $row)
 		ul.gallery-menu li:hover {
 			color: #fff!important;
 		}
-	
+
 		.cc-banner.cc-bottom {
 			z-index: 999999!important;
 		}
@@ -276,19 +276,19 @@ foreach ($result as $row)
 // Getting Facebook comment code from the database
 $statement = $pdo->prepare("SELECT * FROM tbl_comment WHERE id=1");
 $statement->execute();
-$result = $statement->fetchAll(PDO::FETCH_ASSOC);							
-foreach ($result as $row) 
+$result = $statement->fetchAll(PDO::FETCH_ASSOC);
+foreach ($result as $row)
 {
 	echo $row['code_body'];
 }
 ?>
-	
+
 	<div id="preloader">
 		<div id="status"></div>
 	</div>
-	
+
 	<div class="page-wrapper">
-		
+
 		<!-- Top Bar Start -->
 		<div class="top-bar">
 			<div class="container">
@@ -307,8 +307,8 @@ foreach ($result as $row)
 							// Getting and showing all the social media icon URL from the database
 							$statement = $pdo->prepare("SELECT * FROM tbl_social");
 							$statement->execute();
-							$result = $statement->fetchAll(PDO::FETCH_ASSOC);							
-							foreach ($result as $row) 
+							$result = $statement->fetchAll(PDO::FETCH_ASSOC);
+							foreach ($result as $row)
 							{
 								if($row['social_url']!='')
 								{
@@ -340,20 +340,17 @@ foreach ($result as $row)
                                 $q->execute(array(0));
                                 $res = $q->fetchAll();
                                 foreach ($res as $row) {
-                                    
                                     $r = $pdo->prepare("SELECT * FROM tbl_menu WHERE menu_parent=?");
                                     $r->execute(array($row['menu_id']));
                                     $total = $r->rowCount();
 
                                     echo '<li>';
-                                    
                                     if($row['page_id'] == 0) {
-                                        
                                         if($row['menu_url'] == '') {
                                             $final_url = 'javascript:void(0);';
                                         } else {
                                             $final_url = $row['menu_url'];
-                                        }                                       
+                                        }
                                         ?>
                                         <a href="<?php echo $final_url; ?>"><?php echo $row['menu_name']; ?><?php if($total) {echo '<em></em>';}; ?></a>
                                         <?php
