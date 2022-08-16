@@ -3,7 +3,7 @@
 <?php
 $statement = $pdo->prepare("SELECT * FROM tbl_settings WHERE id=1");
 $statement->execute();
-$result = $statement->fetchAll(PDO::FETCH_ASSOC);							
+$result = $statement->fetchAll(PDO::FETCH_ASSOC);
 foreach ($result as $row) {
 	$total_recent_news_home_page = $row['total_recent_news_home_page'];
 	$home_title_service          = $row['home_title_service'];
@@ -39,12 +39,12 @@ foreach ($result as $row) {
 <section class="main-slider">
 	<div class="slider">
 		<ul class="bxslider">
-				
+
 			<?php
 			$statement = $pdo->prepare("SELECT * FROM tbl_slider WHERE status=? ORDER BY id DESC");
 			$statement->execute(array('Active'));
-			$result = $statement->fetchAll(PDO::FETCH_ASSOC);							
-			foreach ($result as $row) 
+			$result = $statement->fetchAll(PDO::FETCH_ASSOC);
+			foreach ($result as $row)
 			{
 				if($row['position']=='Left') {$align='tal';}
 				if($row['position']=='Center') {$align='tac';}
@@ -55,19 +55,19 @@ foreach ($result as $row) {
 					<div class="content">
 						<div class="inner <?php echo $align; ?>">
 							<div class="text">
-							
+
 								<?php if($row['heading']!=''): ?>
 								<h2>
 									<?php echo $row['heading']; ?>
 								</h2>
 								<?php endif; ?>
-								
+
 								<?php if($row['content']!=''): ?>
 								<p>
 									<?php echo nl2br($row['content']); ?>
 								</p>
 								<?php endif; ?>
-								
+
 								<?php if($row['button_text']!=''): ?>
 								<p class="button">
 									<a href="<?php echo $row['button_url']; ?>" class="btn btn-flat"><?php echo $row['button_text']; ?></a>
@@ -80,7 +80,7 @@ foreach ($result as $row) {
 				</li>
 				<?php
 			}
-			?>			
+			?>
 		</ul>
 	</div>
 </section>
@@ -103,7 +103,7 @@ foreach ($result as $row) {
 			<?php
 			$statement = $pdo->prepare("SELECT * FROM tbl_service ORDER BY id ASC");
 			$statement->execute();
-			$result = $statement->fetchAll(PDO::FETCH_ASSOC);							
+			$result = $statement->fetchAll(PDO::FETCH_ASSOC);
 			foreach ($result as $row) {
 				?>
 				<div class="col-sm-6 col-md-4 ser-item wow fadeInUp">
@@ -143,12 +143,12 @@ foreach ($result as $row) {
 		</div>
 		<div class="row">
 			<div class="col-md-12">
-				
+
 				<!-- Team Member Carousel Start -->
 				<div class="team-member-carousel">
 					<?php
-					$statement = $pdo->prepare("SELECT 
-												
+					$statement = $pdo->prepare("SELECT
+
 												t1.id,
 												t1.name,
 												t1.slug,
@@ -171,7 +171,7 @@ foreach ($result as $row) {
 					                           WHERE t1.status = ?
 					                           ");
 					$statement->execute(array('Active'));
-					$result = $statement->fetchAll(PDO::FETCH_ASSOC);							
+					$result = $statement->fetchAll(PDO::FETCH_ASSOC);
 					foreach ($result as $row) {
 						?>
 						<div class="item wow fadeInUp">
@@ -217,7 +217,7 @@ foreach ($result as $row) {
 						</div>
 						<?php
 					}
-					?>					
+					?>
 				</div>
 				<!-- Team Member Carousel End -->
 
@@ -272,7 +272,7 @@ foreach ($result as $row) {
 		</div>
 		<div class="row">
 			<div class="col-md-12">
-				
+
 				<!-- News Carousel Start -->
 				<div class="news-carousel">
 
@@ -280,7 +280,7 @@ foreach ($result as $row) {
 					$i=0;
 					$statement = $pdo->prepare("SELECT * FROM tbl_news ORDER BY news_id DESC");
 					$statement->execute();
-					$result = $statement->fetchAll();							
+					$result = $statement->fetchAll();
 					foreach ($result as $row) {
 						$i++;
 						if($i>$total_recent_news_home_page) {break;}
@@ -297,7 +297,7 @@ foreach ($result as $row) {
 						<?php
 					}
 					?>
-					
+
 				</div>
 				<!-- News Carousel End -->
 
@@ -327,37 +327,37 @@ foreach ($result as $row) {
 		</div>
 		<div class="row">
 			<div class="col-md-12">
-				
+
 				<!-- Testimonial Carousel Start -->
 				<div class="testimonial-carousel">
 					<?php
 					$statement = $pdo->prepare("SELECT * FROM tbl_testimonial ORDER BY id ASC");
 					$statement->execute();
-					$result = $statement->fetchAll(PDO::FETCH_ASSOC);							
+					$result = $statement->fetchAll(PDO::FETCH_ASSOC);
 					foreach ($result as $row) {
 						?>
 						<div class="item">
-							<div class="testimonial-wrapper">								
-								<div class="content">									
+							<div class="testimonial-wrapper">
+								<div class="content">
 									<div class="author">
 										<div class="photo">
 											<img src="<?php echo BASE_URL; ?>assets/uploads/<?php echo $row['photo']; ?>" alt="<?php echo $row['name']; ?>">
 										</div>
 										<div class="text">
 											<h3><?php echo $row['name']; ?></h3>
-											<h4><?php echo $row['designation']; ?> 
+											<h4><?php echo $row['designation']; ?>
 											<?php if($row['company']!=''): ?>
 											<span>(<?php echo $row['company']; ?>)</span>
 											<?php endif; ?>
 											</h4>
 										</div>
-									</div>	
+									</div>
 									<div class="comment">
 										<p>
 											<?php echo nl2br($row['comment']); ?>
 										</p>
 										<div class="icon"></div>
-									</div>									
+									</div>
 								</div>
 							</div>
 						</div>
@@ -373,9 +373,6 @@ foreach ($result as $row) {
 </section>
 <!-- Testimonial End -->
 <?php endif; ?>
-
-
-	
 
 
 <?php if($home_status_partner == 'Show'): ?>
@@ -396,7 +393,7 @@ foreach ($result as $row) {
 					<?php
 					$statement = $pdo->prepare("SELECT * FROM tbl_partner ORDER BY id ASC");
 					$statement->execute();
-					$result = $statement->fetchAll(PDO::FETCH_ASSOC);							
+					$result = $statement->fetchAll(PDO::FETCH_ASSOC);
 					foreach ($result as $row) {
 						?>
 						<div class="item">
@@ -406,7 +403,7 @@ foreach ($result as $row) {
 								<?php else: ?>
 									<a href="<?php echo $row['url']; ?>" target="_blank"><img src="<?php echo BASE_URL; ?>assets/uploads/<?php echo $row['photo']; ?>" alt="<?php echo $row['name']; ?>"></a>
 								<?php endif; ?>
-								
+
 							</div>
 						</div>
 						<?php
