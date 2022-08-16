@@ -3,6 +3,7 @@
 <?php
 echo"coba helo ke 2";
 echo"coba helo ke 3";
+echo"COba Terakhir";
 $statement = $pdo->prepare("SELECT * FROM tbl_settings WHERE id=1");
 $statement->execute();
 $result = $statement->fetchAll(PDO::FETCH_ASSOC);
