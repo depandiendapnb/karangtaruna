@@ -1,7 +1,7 @@
 <?php require_once('header.php'); ?>
 
 <?php
-echo "<h1>Hello World Depandi Enda</h1>";
+echo "<h1>Hello World RPL</h1>";
 $statement = $pdo->prepare("SELECT * FROM tbl_settings WHERE id=1");
 $statement->execute();
 $result = $statement->fetchAll(PDO::FETCH_ASSOC);
@@ -24,15 +24,15 @@ foreach ($result as $row) {
 	$home_subtitle_partner       = $row['home_subtitle_partner'];
 	$home_status_partner         = $row['home_status_partner'];
 	$counter_1_title             = $row['counter_1_title'];
-    $counter_1_value             = $row['counter_1_value'];
-    $counter_2_title             = $row['counter_2_title'];
-    $counter_2_value             = $row['counter_2_value'];
-    $counter_3_title             = $row['counter_3_title'];
-    $counter_3_value             = $row['counter_3_value'];
-    $counter_4_title             = $row['counter_4_title'];
-    $counter_4_value             = $row['counter_4_value'];
-    $counter_photo               = $row['counter_photo'];
-    $counter_status              = $row['counter_status'];
+	$counter_1_value             = $row['counter_1_value'];
+	$counter_2_title             = $row['counter_2_title'];
+	$counter_2_value             = $row['counter_2_value'];
+	$counter_3_title             = $row['counter_3_title'];
+	$counter_3_value             = $row['counter_3_value'];
+	$counter_4_title             = $row['counter_4_title'];
+	$counter_4_value             = $row['counter_4_value'];
+	$counter_photo               = $row['counter_photo'];
+	$counter_status              = $row['counter_status'];
 }
 ?>
 
@@ -309,10 +309,6 @@ foreach ($result as $row) {
 <!-- News End -->
 <?php endif; ?>
 
-
-
-
-
 <?php if($home_status_testimonial == 'Show'): ?>
 <!-- Testimonial Start -->
 <section class="testimonial-v1" style="background-image:url(<?php echo BASE_URL; ?>assets/uploads/<?php echo $home_photo_testimonial; ?>);">
@@ -374,7 +370,6 @@ foreach ($result as $row) {
 </section>
 <!-- Testimonial End -->
 <?php endif; ?>
-
 
 <?php if($home_status_partner == 'Show'): ?>
 <!-- Partner Start -->
