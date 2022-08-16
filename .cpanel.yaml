@@ -1,0 +1,5 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/u1584567/public_html/repositories/karangtaruna
+    - /bin/cp -R images $DEPLOYPATH
